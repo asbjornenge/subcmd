@@ -47,7 +47,7 @@ require('subcmd')({
 
 ```js
 {
-    autoHelp : <boolean>  /* Automatically prints usage info and quits if -h or --help */
+    autoHelp : <bool>  // Print usage info and quit if -h or --help (default false)
 }
 ```
 
