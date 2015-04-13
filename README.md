@@ -26,19 +26,33 @@ npm install --save subcmd
 ## Use
 
 ```js
-var subcmd = require('subcmd')
-
-subcmd({
-    name : "ls",
-    usage : "list files in dir",
+require('subcmd')({
+    name : 'ls',
+    usage : 'list files in dir',
     options : [], /* cliclopts options */
     command : function(args) { /* do the ls thing */  },
     commands : [{
-        name : "foo",
-        usage : "foo-list files in dir",
+        name : 'foo',
+        usage : 'foo-list files in dir',
         options : [],
         command : function(args) { /* do the ls foo thing */ },
         commands : []
     }]
+},{
+    autoHelp : true
 })(process.argv.slice(2))
 ```
+
+### Options
+
+```js
+{
+    autoHelp : <boolean>  /* Automatically prints usage info and quits if -h or --help */
+}
+```
+
+## Changelog
+
+### 1.0.0
+
+* Initial release :tada:
