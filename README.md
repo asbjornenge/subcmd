@@ -54,6 +54,10 @@ require('subcmd')({
 
 ## Changelog
 
+### 1.0.1
+
+* Added missing deps :see_no_evil:
+
 ### 1.0.0
 
 * Initial release :tada:
