@@ -1,7 +1,5 @@
 var minimist = require('minimist')
-//  var cliclopts = require('cliclopts')
-//  var xtend = require('xtend')
-var debug = require('debug')('subcommand')
+var cliclopts = require('cliclopts')
 
 function match(config, options, args, cmd) {
     var argv = minimist(args)
@@ -10,11 +8,13 @@ function match(config, options, args, cmd) {
     if (argv._.length > 0 && config.commands) {
         moreCmds = config.commands.filter(function(_cmd) { return _cmd.name == argv._[0]}).length > 0
     }
+    var isDefaultCmd = (!cmd && !moreCmds)
+    var isSubCmd     = (cmd && cmd == config.name && !moreCmds)
 
-    if (cmd && cmd == config.name && !moreCmds) {
+    if (isDefaultCmd || isSubCmd) {
         config.command(argv)
         return true
-    } 
+    }
 
     var nextCmd = argv._.shift()
     var nextArgs = args.filter(function(arg) { return arg != nextCmd })
@@ -25,7 +25,6 @@ function match(config, options, args, cmd) {
     }
 
     return match(nextConfig[0], options, nextArgs, nextCmd)
-
 }
 
 module.exports = function(config, options) {

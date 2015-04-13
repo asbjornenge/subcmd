@@ -40,7 +40,5 @@ subcmd({
         command : function() { /* do the ls foo thing */ },
         commands : []
     }]
-})
-
-subcmd(process.argv.slice(2))
+})(process.argv.slice(2))
 ```

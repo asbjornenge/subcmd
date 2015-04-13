@@ -1,0 +1,26 @@
+{
+  "name": "subcmd",
+  "version": "1.0.0",
+  "description": "Create CLI tools with subcommands",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -R nyan -w --check-leaks"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asbjornenge/subcmd.git"
+  },
+  "keywords": [
+    "cli",
+    "tools"
+  ],
+  "author": "Asbjorn Enge <asbjorn@hanafjedle.net>",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/asbjornenge/subcmd/issues"
+  },
+  "homepage": "https://github.com/asbjornenge/subcmd"
+}
