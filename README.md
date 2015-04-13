@@ -7,11 +7,11 @@ but with a nested structure that simplifies usage information output. Based on [
 
 ```js
 {
-    name:"",
-    usage:"",
-    options:"",
-    command:function() {},
-    commands: []
+    name : "",
+    usage : "",
+    options : [],
+    command : function() {},
+    commands : []
 }
 ```
 
@@ -31,12 +31,12 @@ var subcmd = require('subcmd')
 subcmd({
     name : "ls",
     usage : "list files in dir",
-    options : {}, /* cliclopts options */
+    options : [], /* cliclopts options */
     command : function() { /* do the ls thing */  },
     commands : [{
         name : "foo",
         usage : "foo-list files in dir",
-        options : {},
+        options : [],
         command : function() { /* do the ls foo thing */ },
         commands : []
     }]
