@@ -18,6 +18,7 @@ function match(config, options, args, cmd) {
             boolean : opts.boolean(),
             default : opts.default()
         })
+        if (options.autoHelp && (argv.h || argv.help)) { opts.print(); process.exit(0) }
         config.command(argv, opts)
         return true
     }
@@ -35,7 +36,6 @@ function match(config, options, args, cmd) {
 
 module.exports = function(config, options) {
   options = options || {}
-  // TODO: Use options for autoHelp : true
   config  = Array.isArray(config) ? { commands: config } : config
   return match.bind(undefined, config, options)
 }
