@@ -1,5 +1,5 @@
 var minimist = require('minimist')
-var cliclopts = require('cliclopts')
+var cliopts  = require('./cliopts')
 
 function match(config, options, args, cmd) {
     var argv = minimist(args)
@@ -12,13 +12,13 @@ function match(config, options, args, cmd) {
     var isSubCmd     = (cmd && cmd == config.name && !moreCmds)
 
     if (isDefaultCmd || isSubCmd) {
-        var clio = cliclopts(config.options || {})
+        var opts = cliopts(config)
         var argv = minimist(args, {
-            alias   : clio.alias(),
-            boolean : clio.boolean(),
-            default : clio.default()
+            alias   : opts.alias(),
+            boolean : opts.boolean(),
+            default : opts.default()
         })
-        config.command(argv, clio)
+        config.command(argv, opts)
         return true
     }
 
@@ -35,6 +35,7 @@ function match(config, options, args, cmd) {
 
 module.exports = function(config, options) {
   options = options || {}
+  // TODO: Use options for autoHelp : true
   config  = Array.isArray(config) ? { commands: config } : config
   return match.bind(undefined, config, options)
 }

@@ -19,8 +19,8 @@ function match(fn) {
                 help    : 'Path to foo file'
             }
         ],
-        command : function(args) {
-            fn('foo',args)
+        command : function(args, opts) {
+            fn('foo',args,opts)
         },
         commands : [
             {
@@ -34,8 +34,8 @@ function match(fn) {
                         help    : 'stfu'
                     }
                 ],
-                command : function(args) {
-                    fn('foo bar',args)
+                command : function(args, opts) {
+                    fn('foo bar',args,opts)
                 }
             }
         ]
@@ -43,7 +43,7 @@ function match(fn) {
 }
 
 it('works with a basic command', function(done) {
-    match(function(cmd, args) {
+    match(function(cmd, args, opts) {
         assert(cmd == 'foo')
         assert(args._[0] == 'test')
         assert(args.v)
@@ -58,4 +58,12 @@ it('works with a sub command', function(done) {
         assert(args._[0] == 'test')
         done()
     })(['bar','test','-v'])
+})
+
+it('return usage information', function(done) {
+    match(function(cmd, args, opts) {
+        assert(cmd == 'foo bar')
+        assert(opts.usage().indexOf('Usage: foo bar [OPTIONS]') == 0)
+        done()
+    })(['bar'])
 })
