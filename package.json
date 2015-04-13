@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/asbjornenge/subcmd/issues"
   },
-  "homepage": "https://github.com/asbjornenge/subcmd"
+  "homepage": "https://github.com/asbjornenge/subcmd",
+  "dependencies": {
+    "cliclopts": "^1.1.0",
+    "minimist": "^1.1.1"
+  }
 }
