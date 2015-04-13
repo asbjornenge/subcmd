@@ -47,6 +47,7 @@ it('works with a basic command', function(done) {
         assert(cmd == 'foo')
         assert(args._[0] == 'test')
         assert(args.v)
+        assert(args.path == './foo.json') // default
         done()
     })(['test','-v'])
 })

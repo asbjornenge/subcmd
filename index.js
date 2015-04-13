@@ -12,7 +12,13 @@ function match(config, options, args, cmd) {
     var isSubCmd     = (cmd && cmd == config.name && !moreCmds)
 
     if (isDefaultCmd || isSubCmd) {
-        config.command(argv)
+        var clio = cliclopts(config.options || {})
+        var argv = minimist(args, {
+            alias   : clio.alias(),
+            boolean : clio.boolean(),
+            default : clio.default()
+        })
+        config.command(argv, clio)
         return true
     }
 
