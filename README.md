@@ -1,7 +1,8 @@
 # subcmd
 
 Create CLI tools with subcommands.  
-Hugely inspired by [subcommand](https://github.com/maxogden/subcommand), but with a nested structure and support for usage information. Based on [minimist](https://www.npmjs.com/package/minimist) and [cliclopts](https://www.npmjs.com/package/cliclopts).
+Hugely inspired by [subcommand](https://github.com/maxogden/subcommand), but with a nested structure and support for usage information.  
+Based on [minimist](https://www.npmjs.com/package/minimist) and [cliclopts](https://www.npmjs.com/package/cliclopts).
 
 **subcmd** has a single nested structure of commands
 
