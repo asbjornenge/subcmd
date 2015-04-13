@@ -10,7 +10,7 @@ but with a nested structure that simplifies usage information output. Based on [
     name : "",
     usage : "",
     options : [],
-    command : function() {},
+    command : function(args) {},
     commands : []
 }
 ```
@@ -32,12 +32,12 @@ subcmd({
     name : "ls",
     usage : "list files in dir",
     options : [], /* cliclopts options */
-    command : function() { /* do the ls thing */  },
+    command : function(args) { /* do the ls thing */  },
     commands : [{
         name : "foo",
         usage : "foo-list files in dir",
         options : [],
-        command : function() { /* do the ls foo thing */ },
+        command : function(args) { /* do the ls foo thing */ },
         commands : []
     }]
 })(process.argv.slice(2))
