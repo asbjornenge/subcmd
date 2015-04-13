@@ -29,12 +29,12 @@ npm install --save subcmd
 ```js
 require('subcmd')({
     name : 'ls',
-    usage : 'list files in dir',
+    usage : 'Usage: ls [OPTIONS]',
     options : [], /* cliclopts options */
     command : function(args) { /* do the ls thing */  },
     commands : [{
         name : 'foo',
-        usage : 'foo-list files in dir',
+        usage : 'Usage: ls foo [OPTIONS]',
         options : [],
         command : function(args) { /* do the ls foo thing */ },
         commands : []
